@@ -30,6 +30,11 @@ const Header = ({ buttons }) => {
   const loginPage = () => {
     navigate(`/login`);
   };
+
+  const newUserPage = () => {
+    navigate(`/signin`);
+  };
+
   if (buttons) {
     return (
       <Nav className="header-nav">
@@ -44,7 +49,12 @@ const Header = ({ buttons }) => {
             />
           </li>
           <li>
-            <Button text={"Sign In"} />
+            <Button
+              text={"Sign In"}
+              actionOnClick={() => {
+                newUserPage();
+              }}
+            />
           </li>
         </List>
       </Nav>

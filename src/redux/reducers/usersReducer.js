@@ -7,7 +7,7 @@ export const usersReducer = (currentUsers = [], action = {}) => {
     case actionsTypes.loadUserlist:
       newUsers = [...action.users];
       break;
-    case actionsTypes.loadOneRobot:
+    case actionsTypes.loadUser:
       newUsers = { ...action.user };
       break;
 
