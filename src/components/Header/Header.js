@@ -24,20 +24,28 @@ const List = styled.ul`
   justify-content: space-around;
 `;
 
-const Header = () => {
-  return (
-    <Nav className="header-nav">
-      <H1>BLACKFLAGGER</H1>
-      <List>
-        <li>
-          <Button text={"Login"} />
-        </li>
-        <li>
-          <Button text={"Sign In"} />
-        </li>
-      </List>
-    </Nav>
-  );
+const Header = ({ buttons }) => {
+  if (buttons) {
+    return (
+      <Nav className="header-nav">
+        <H1>BLACKFLAGGER</H1>
+        <List>
+          <li>
+            <Button text={"Login"} />
+          </li>
+          <li>
+            <Button text={"Sign In"} />
+          </li>
+        </List>
+      </Nav>
+    );
+  } else {
+    return (
+      <Nav className="header-nav">
+        <H1>BLACKFLAGGER</H1>
+      </Nav>
+    );
+  }
 };
 
 export default Header;
