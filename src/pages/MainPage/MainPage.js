@@ -1,11 +1,12 @@
-import LoginForm from "../../components/LoginForm/LoginForm";
+import Header from "../../components/Header/Header";
 
-const MainPage = (logo) => {
+const MainPage = ({ logo }) => {
   return (
     <div className="App">
       <header className="App-header">
+        <Header buttons={true} />
         <img src={logo} className="App-logo" alt="logo" />
-        <LoginForm classname={"login-form"} />
+
         <p>ANARCHO-PUNK SOCIAL NETWORK</p>
       </header>
     </div>
