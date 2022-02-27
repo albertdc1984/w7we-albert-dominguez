@@ -1,0 +1,9 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  align-items: flex-start;
+}
+input {
+  width: 40%;
+}
