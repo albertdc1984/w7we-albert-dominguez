@@ -10,8 +10,7 @@ function App() {
       <header className="App-header">
         <Header />
         <img src={logo} className="App-logo" alt="logo" />
-        <LoginForm classname={"login-form"} />
-        <NewUser />
+
         <p>ANARCHO-PUNK SOCIAL NETWORK</p>
       </header>
     </div>

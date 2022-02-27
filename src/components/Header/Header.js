@@ -5,6 +5,8 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   background-color: red;
+  top: 0;
+  position: fixed;
   color: white;
   width: 100vw;
   height: 10vh;
@@ -33,7 +35,6 @@ const Header = () => {
         <li>
           <Button text={"Sign In"} />
         </li>
-        <li></li>
       </List>
     </Nav>
   );

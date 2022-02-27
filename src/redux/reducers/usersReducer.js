@@ -1,13 +1,13 @@
-import { actionTypes } from "../actions/actionTypes";
+import { actionsTypes } from "../actions/actionsTypes";
 
 export const usersReducer = (currentUsers = [], action = {}) => {
   let newUsers;
 
   switch (action.type) {
-    case actionTypes.loadUserlist:
+    case actionsTypes.loadUserlist:
       newUsers = [...action.users];
       break;
-    case actionTypes.loadOneRobot:
+    case actionsTypes.loadOneRobot:
       newUsers = { ...action.user };
       break;
 
