@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../Button/Button";
 
@@ -25,16 +26,35 @@ const List = styled.ul`
 `;
 
 const Header = ({ buttons }) => {
+  const navigate = useNavigate();
+  const loginPage = () => {
+    navigate(`/login`);
+  };
+
+  const newUserPage = () => {
+    navigate(`/signin`);
+  };
+
   if (buttons) {
     return (
       <Nav className="header-nav">
         <H1>BLACKFLAGGER</H1>
         <List>
           <li>
-            <Button text={"Login"} />
+            <Button
+              text={"Login"}
+              actionOnClick={() => {
+                loginPage();
+              }}
+            />
           </li>
           <li>
-            <Button text={"Sign In"} />
+            <Button
+              text={"Sign In"}
+              actionOnClick={() => {
+                newUserPage();
+              }}
+            />
           </li>
         </List>
       </Nav>
