@@ -7,7 +7,7 @@ import {
 
 export const loadUsersThunk = async (dispatch) => {
   const token = localStorage.getItem("UserToken");
-  const response = await fetch(`${process.env.API_URL}`, {
+  const response = await fetch(`https://xarxasocial84.herokuapp.com/`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -18,14 +18,16 @@ export const loadUsersThunk = async (dispatch) => {
   dispatch(loadUsersAction(users.users));
 };
 export const loadOneUserThunk = (id) => async (dispatch) => {
-  const response = await fetch(`${process.env.API_URL}users/${id}`);
+  const response = await fetch(
+    `https://xarxasocial84.herokuapp.com/users/${id}`
+  );
   const user = await response.json();
 
   dispatch(loadUserAction(user));
 };
 
 export const loginThunk = (user) => async (dispatch) => {
-  const response = await fetch(`${process.env.API_URL}login`, {
+  const response = await fetch(`https://xarxasocial84.herokuapp.com/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +46,7 @@ export const loginThunk = (user) => async (dispatch) => {
 export const newUserThunk =
   ({ user }) =>
   async (dispatch) => {
-    const response = await fetch(`${process.env.API_URL}signin`, {
+    const response = await fetch(`https://xarxasocial84.herokuapp.com/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -13,12 +13,10 @@ const Div = styled.div`
 
 const NewUserPage = () => {
   return (
-    <>
-      <Div>
-        <Header buttons={false} />
-        <NewUser classname={"login-form"} />
-      </Div>
-    </>
+    <Div>
+      <Header buttons={false} />
+      <NewUser classname={"login-form"} />
+    </Div>
   );
 };
 
