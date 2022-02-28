@@ -6,7 +6,13 @@ import {
 } from "../actions/actionsCreator";
 
 export const loadUsersThunk = async (dispatch) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}`);
+  const token = localStorage.getItem("UserToken");
+  const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
   const users = await response.json();
   if (!response.ok) return;
   dispatch(loadUsersAction(users.users));
