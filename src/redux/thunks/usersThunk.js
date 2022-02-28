@@ -6,7 +6,13 @@ import {
 } from "../actions/actionsCreator";
 
 export const loadUsersThunk = async (dispatch) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}`);
+  const token = localStorage.getItem("UserToken");
+  const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
   const users = await response.json();
   if (!response.ok) return;
   dispatch(loadUsersAction(users.users));
@@ -21,7 +27,7 @@ export const loadOneUserThunk = (id) => async (dispatch) => {
 export const loginThunk =
   ({ user }) =>
   async (dispatch) => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}login`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +46,7 @@ export const loginThunk =
 export const newUserThunk =
   ({ user }) =>
   async (dispatch) => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}signin`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
