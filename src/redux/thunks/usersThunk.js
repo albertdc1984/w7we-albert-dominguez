@@ -21,7 +21,7 @@ export const loadOneUserThunk = (id) => async (dispatch) => {
 export const loginThunk =
   ({ user }) =>
   async (dispatch) => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}login`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export const loginThunk =
 export const newUserThunk =
   ({ user }) =>
   async (dispatch) => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}signin`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

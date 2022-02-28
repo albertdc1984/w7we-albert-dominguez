@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UsersList from "./pages/usersList/usersList";
-import NewUserPage from "./pages/newUserPage/newUserPage";
+import NewUserPage from "./pages/NewUserPage/NewUserPage";
 
 function App() {
   return (
