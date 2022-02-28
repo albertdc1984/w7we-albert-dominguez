@@ -17,7 +17,7 @@ const UserCard = ({ user }) => {
     <Div>
       <List>
         <li>{user.name}</li>
-        <li>{user.username}</li>
+        <li>{`@${user.username}`}</li>
         <li>{user.friends}</li>
         <li>{user.enemies}</li>
       </List>
