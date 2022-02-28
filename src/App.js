@@ -10,10 +10,12 @@ import NewUserPage from "./pages/NewUserPage/NewUserPage";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<MainPage logo={logo} />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/userlist" element={<UsersList />} />
-      <Route path="/signin" element={<NewUserPage />} />
+      <Route>
+        <Route path="/" element={<MainPage logo={logo} />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/userlist" element={<UsersList />} />
+        <Route path="/signin" element={<NewUserPage />} />
+      </Route>
     </Routes>
   );
 }
