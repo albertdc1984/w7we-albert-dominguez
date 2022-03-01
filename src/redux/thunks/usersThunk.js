@@ -46,7 +46,7 @@ export const loginThunk = (user) => async (dispatch) => {
 
 export const newUserThunk = (user) => async (dispatch) => {
   console.log(user.append);
-  const response = await fetch("http://localhost:3084/signin", {
+  const response = await fetch("https://xarxasocial84.herokuapp.com/signin", {
     method: "POST",
 
     body: user,
