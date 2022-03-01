@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { newUserThunk } from "../../redux/thunks/usersThunk";
 import Button from "../Button/Button";
 
-const NewUser = ({ classname }) => {
+const NewUser = () => {
   const emptyDataForm = {
     name: "",
     username: "",
     password: "",
+    image: "",
   };
 
   const [formData, setFormData] = useState(emptyDataForm);
@@ -27,17 +28,26 @@ const NewUser = ({ classname }) => {
     event.preventDefault();
     dispatch(newUserThunk(formData));
     resetForm();
-    goToPeoplePage();
+    jumpToUserList();
   };
 
   const navigate = useNavigate();
 
-  const goToPeoplePage = () => {
+  const jumpToUserList = () => {
     navigate(`/userlist`);
   };
 
   return (
-    <form className="classname" onSubmit={formSubmit}>
+    <form className="classname" onSubmit={formSubmit} autoComplete={"off"}>
+      <label htmlFor={"image"}>Show your face</label>
+      <input
+        id="image"
+        type="file"
+        name="image"
+        onChange={handleForm}
+        value={formData.image}
+      ></input>
+
       <label htmlFor={"name"}>What's your name?</label>
       <input
         id={"name"}

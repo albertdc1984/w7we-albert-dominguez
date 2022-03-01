@@ -43,21 +43,17 @@ export const loginThunk = (user) => async (dispatch) => {
   }
 };
 
-export const newUserThunk =
-  ({ user }) =>
-  async (dispatch) => {
-    const response = await fetch(`https://xarxasocial84.herokuapp.com/signin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+export const newUserThunk = (user) => async (dispatch) => {
+  const response = await fetch(`https://xarxasocial84.herokuapp.com/signin`, {
+    method: "POST",
+    headers: { "content-type": "multipart/form-data" },
+    body: JSON.stringify(user),
+  });
 
-    if (response.ok) {
-      const token = await response.json();
-      const { id, username } = await jwtDecode(token.token);
-      localStorage.setItem("UserToken", token.token);
-      dispatch(loginAction({ id, username, token: token.token }));
-    }
-  };
+  if (response.ok) {
+    const token = await response.json();
+    const { id, username } = await jwtDecode(token.token);
+    localStorage.setItem("UserToken", token.token);
+    dispatch(loginAction({ id, username, token: token.token }));
+  }
+};
