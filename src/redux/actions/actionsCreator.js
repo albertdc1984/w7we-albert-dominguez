@@ -15,7 +15,7 @@ export const loginAction = (user) => ({
   user,
 });
 
-export const newUser = (user) => ({
+export const newUserAction = (user) => ({
   type: actionsTypes.newUser,
   user,
 });

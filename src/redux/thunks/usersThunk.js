@@ -3,6 +3,7 @@ import {
   loginAction,
   loadUsersAction,
   loadUserAction,
+  newUserAction,
 } from "../actions/actionsCreator";
 
 export const loadUsersThunk = async (dispatch) => {
@@ -44,16 +45,18 @@ export const loginThunk = (user) => async (dispatch) => {
 };
 
 export const newUserThunk = (user) => async (dispatch) => {
-  const response = await fetch(`https://xarxasocial84.herokuapp.com/signin`, {
+  console.log(user.append);
+  const response = await fetch("http://localhost:3084/signin", {
     method: "POST",
-    headers: { "content-type": "multipart/form-data" },
-    body: JSON.stringify(user),
-  });
 
-  if (response.ok) {
+    body: user,
+  });
+  const newUser = response.json();
+  dispatch(newUserAction(newUser));
+  /*   if (response.ok) {
     const token = await response.json();
     const { id, username } = await jwtDecode(token.token);
     localStorage.setItem("UserToken", token.token);
     dispatch(loginAction({ id, username, token: token.token }));
-  }
+  } */
 };
